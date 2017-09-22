@@ -5,6 +5,12 @@ import axios from 'axios';
 import Tile from './Tile';
 import { Image } from 'semantic-ui-react';
 
+const styles = {
+  imageStyle:{
+    maxWidth: "100px"
+  }
+}
+
 class Home extends Component {
   state = { apps: [] }
 
@@ -12,7 +18,6 @@ class Home extends Component {
     axios.get('/api/apps')
       .then( res => this.setState({ apps: res.data }) )
   }
-
 
   render() {
     // loop over apps and render an clickable image for it
@@ -24,7 +29,7 @@ class Home extends Component {
         <ul>
           { this.state.apps.map( a =>
               <li key={a.id}>
-                <Link to={`/apps/${a.id}`}><img src={a.logo} alt={a.logo} /></Link>
+                <Link to={`/apps/${a.id}`}><img style={styles.imageStyle} src={a.logo} alt={"a.logo"} /></Link>
 
               </li>
             )
