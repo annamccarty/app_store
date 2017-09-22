@@ -5116,7 +5116,7 @@ react-dev-utils@^4.0.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-"react-dom@^15 || ^16", react-dom@^15.6.1:
+"react-dom@^15 || ^16", react-dom@^15.4.2, react-dom@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -5137,6 +5137,13 @@ react-error-overlay@^2.0.1:
     react-dom "^15 || ^16"
     settle-promise "1.0.0"
     source-map "0.5.6"
+
+react-image-tiler@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-image-tiler/-/react-image-tiler-1.1.5.tgz#3671cca4ba165d49ed24b35fead77a24a067bd6a"
+  dependencies:
+    react "^15.4.2"
+    react-dom "^15.4.2"
 
 react-redux@^5.0.6:
   version "5.0.6"
@@ -5214,7 +5221,7 @@ react-scripts@1.0.13:
   optionalDependencies:
     fsevents "1.1.2"
 
-"react@^15 || ^16", react@^15.6.1:
+"react@^15 || ^16", react@^15.4.2, react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
