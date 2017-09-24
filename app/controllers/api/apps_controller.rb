@@ -6,6 +6,7 @@ class Api::AppsController < ApplicationController
   end
 
   def show
+    render json: @app
   end
 
   def create
