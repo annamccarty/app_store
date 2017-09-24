@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 import Form from './Form';
 
 class Tile extends React.Component {
@@ -16,6 +16,19 @@ class Tile extends React.Component {
     .then( () => {
       this.props.history.push('/');
     })
+  }
+
+  submit = (app) => {
+    axios.put(`/api/apps/${app.id}`, { app })
+      .then( res => this.setState({ app: res.data, edit: false }));
+  }
+
+  edit = () => (
+    <Form {...this.state.app} submit={this.submit} />
+  )
+
+  toggleEdit = () => {
+    this.setState({ edit: !this.state.edit })
   }
 
   show = () => {
@@ -41,18 +54,23 @@ class Tile extends React.Component {
               {description}
             </Card.Description>
             </Card.Content>
-            <button onClick={ () => this.deleteApp(id)}>Delete App</button>
         </Card>
       </div>
     )
   }
 
   render() {
-      return(
-        <div>
-          {this.show()}
-        </div>
-      )
-    }
+    const { edit } = this.state;
+    const { id } = this.state.app;
+    return(
+      <div>
+        { edit ? this.edit() : this.show() }
+        <Button onClick={this.toggleEdit}>
+          { edit ? 'Cancel' : 'Edit' }
+        </Button>
+        <Button onClick={ () => this.deleteApp(id)}>Delete App</Button>
+      </div>
+    )
   }
+}
 export default Tile;
