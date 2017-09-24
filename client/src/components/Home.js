@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 import axios from 'axios';
 import Tile from './Tile';
-import { Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 const styles = {
   imageStyle:{
-    maxWidth: "100px"
+    maxWidth: "200px",
   }
 }
 
@@ -26,15 +26,19 @@ class Home extends Component {
     return (
       <div>
         <Header as='h1' textAlign='center'>App Store</Header>
-        <ul>
-          { this.state.apps.map( a =>
-              <li key={a.id}>
-                <Link to={`/apps/${a.id}`}><img style={styles.imageStyle} src={a.logo} alt={"a.logo"} /></Link>
-
-              </li>
+        <Card.Group className="cards-root">
+          { this.state.apps.map( app =>
+              <Link to={`/apps/${app.id}`}><Card key={app.id} >
+                <h2>{app.name}</h2>
+                <Image src={app.logo} />
+                <h3>$ {app.price}</h3>
+                <h3>Version {app.version}</h3>
+                <h3>{app.category}</h3>
+                <p>{app.description}</p>
+              </Card></Link>
             )
           }
-        </ul>
+        </Card.Group>
       </div>
     );
   }

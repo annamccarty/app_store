@@ -13,7 +13,7 @@ class Api::AppsController < ApplicationController
     if app.save
       render json: app
     else
-      render json: status: 422
+      render json: { errors: app.errors.full_messages.join(', ') }
     end
   end
 
@@ -21,7 +21,7 @@ class Api::AppsController < ApplicationController
     if @app.update(app_params)
       render json: @app
     else
-      render json: status: 422
+      render json: { errors: app.errors.full_messages.join(', ') }
     end
   end
 
