@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 import axios from 'axios';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Button } from 'semantic-ui-react';
 
 class Home extends Component {
   state = { apps: [] }
@@ -16,6 +16,9 @@ class Home extends Component {
     return (
       <div>
         <Header as='h1' textAlign='center'>App Store</Header>
+        <Link to={`/apps/`}><Button>Add New App</Button></Link>
+        <br />
+        <br />
         <Card.Group className="cards-root">
           { this.state.apps.map( app =>
               <Link to={`/apps/${app.id}`}><Card key={app.id} >

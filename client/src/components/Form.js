@@ -16,12 +16,12 @@ class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const app = { ...this.state };
-    this.props.submit(app)
+    this.props.submit(app);
     this.setState({ ...this.defaultValue });
   }
 
   render() {
-    const { name, description, price } = this.state;
+    const { name, description, price, category, version } = this.state;
     return(
       <form onSubmit={this.handleSubmit}>
         <input
@@ -34,14 +34,26 @@ class Form extends React.Component {
         <input
           id='price'
           placeholder='Price'
+          type='number'
           value={price}
           onChange={this.handleChange}
         />
         <input
-          id='price'
-          placeholder='Price'
-          type='number'
-          value={price}
+          id='version'
+          placeholder='Version'
+          value={version}
+          onChange={this.handleChange}
+        />
+        <input
+          id='category'
+          placeholder='Category'
+          value={category}
+          onChange={this.handleChange}
+        />
+        <input
+          id='description'
+          placeholder='Description'
+          value={description}
           onChange={this.handleChange}
         />
         <button type='submit'>Submit</button>

@@ -9,6 +9,7 @@ import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
 import Tile from './Tile';
+import Form from './Form';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route exact path='/apps/:id' component={Tile} />
+            <Route exact path='/apps/' component={Form} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
